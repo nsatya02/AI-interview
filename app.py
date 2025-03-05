@@ -9,7 +9,7 @@ load_dotenv()
 # Configure Gemini API
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
-    st.error("API key not found. Please set the GENAI_API_KEY environment variable.")
+    st.error("API key not found. Please set the GEMINI_API_KEY environment variable.")
     st.stop()
 
 genai.configure(api_key=api_key)
@@ -20,7 +20,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-model = genai.GenerativeModel("gemini-1.5-pro")
+model = genai.GenerativeModel("model-name")
 
 # Function to get a question from Gemini based on type, company, role, topic, and difficulty
 def get_interview_question(interview_type, company, role, topic, difficulty):
