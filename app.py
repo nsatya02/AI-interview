@@ -56,7 +56,7 @@ col1, col2 = st.columns([1, 3])
 
 with col1:
     role_name = st.text_input("Enter your role (e.g., Software Engineer)")
-    company_name = st.text_input("Target Company")
+    #company_name = st.text_input("Target Company")
     difficulty_levels = ["Easy", "Medium", "Hard"]
     difficulty = st.selectbox("Select Question Difficulty", difficulty_levels)
     topics = ["Data Structures", "Algorithms", "System Design", "Machine Learning", "Cybersecurity","Statistics"]
@@ -67,10 +67,12 @@ with col1:
 
 with col2:
     if st.button("Generate Next Question"):
-        if not company_name or not role_name:
-            st.warning("Please enter both company name and role to generate a question.")
+        # if not company_name or not role_name:
+        #     st.warning("Please enter both company name and role to generate a question.")
+        if not role_name:
+            st.warning("Please enter role to generate a question.")
         else:
-            st.session_state["question"] = get_interview_question(interview_type, company_name, role_name, topic, difficulty)
+            st.session_state["question"] = get_interview_question(interview_type, '''company_name''', role_name, topic, difficulty)
             st.markdown(f"<div class='question-box'><strong>Question {num_questions}:</strong> {st.session_state['question']}</div>", unsafe_allow_html=True)
     
     user_response = st.text_area("Your Answer:", height=150)
