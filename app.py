@@ -20,7 +20,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-model = genai.GenerativeModel("model-name")
+model = genai.GenerativeModel("gemini-1.5-pro")
 
 # Function to get a question from Gemini based on type, company, role, topic, and difficulty
 def get_interview_question(interview_type, company, role, topic, difficulty):
